@@ -268,6 +268,7 @@ export default class Agenda extends Component<AgendaProps, State> {
   onLayout = (event: LayoutChangeEvent) => {
     this.viewHeight = event.nativeEvent.layout.height;
     this.viewWidth = event.nativeEvent.layout.width;
+    this.calendar?.current?.scrollToDay(this.state.selectedDay, this.calendarOffset(), false);
     this.forceUpdate();
   };
 
