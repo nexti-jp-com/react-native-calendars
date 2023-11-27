@@ -16,11 +16,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18.17.0
           registry-url: https://npm.pkg.github.com/
           scope: '@nexti-jp-com'
       - run: git checkout nexti-jp-com-release
-      - run: npm ci
+      - run: npm install
       - run: npm run build:ts
       - run: npm --no-git-tag-version version ${{ github.event.release.tag_name }}
       - run: npm publish --tag latest
